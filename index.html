@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html ng-app="filmes">
+<head>
+    <meta charset="UTF-8">
+    <title>Super Bid - Offers</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/filmes.controller.js"></script>
+    <script src="scripts/filme.directive.js"></script>
+    <script src="scripts/meus-filmes.factory.js"></script>
+</head>
+<body>
+    <div class="container" ng-controller="FilmesController">
+        <h1>{{ titulo }}</h1>
+
+        <div class="lista-filmes">
+            <div aw-filme="f" ng-repeat="f in filmes"></div>
+        </div>
+
+        <hr>
+
+    </div>
+
+</body>
+</html>
