@@ -5,24 +5,42 @@
     <title>Super Bid - Offers</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/filmes.controller.js"></script>
     <script src="scripts/filme.directive.js"></script>
     <script src="scripts/meus-filmes.factory.js"></script>
+    <script src="scripts/dirPagination.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        
 </head>
 <body>
     <div class="container" ng-controller="FilmesController">
-        <h1>{{ titulo }}</h1>
+        <table class="table">
+                <tr dir-paginate="filme in filmes | itemsPerPage:1">
+                    <td>
+                       
+                    <h1>Lote: {{ filme.lotNumber }}</h1>
+                    <h4>{{ filme.productShortDesc }}</h4>
 
-        <div class="lista-filmes">
-            <div aw-filme="f" ng-repeat="f in filmes"></div>
-        </div>
+                    <div class="minha-div">
+                        <img ng-if="filme.gallery[0].link" ng-src="{{ filme.gallery[0].link }}" alt=" {{ filme.productShortDesc }}">
+                    </div>
 
-        <hr>
+                    <ul>
+                        <li><strong>Ultimo Lance:</strong> {{ filme.bids[0] }}</li>
+                        <li><strong>Detalhe:</strong> {{ filme.fullDesc }}</li>
+                    </ul>
 
+                    </td>
+                </tr>
+        </table>
+         <dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
     </div>
 
+ 
 </body>
 </html>

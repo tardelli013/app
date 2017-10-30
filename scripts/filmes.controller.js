@@ -1,6 +1,6 @@
 (function(){
   angular
-  .module('filmes')
+  .module('filmes', ['angularUtils.directives.dirPagination'])
   .controller('FilmesController', function($scope, MeusFilmes) {
     $scope.titulo = "Galeria";
 
